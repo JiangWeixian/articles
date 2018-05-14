@@ -337,7 +337,7 @@ module.exports = {
 }
 ```
 
-**注意loader添加顺序（use中），style-loader，css-loader， postcss-loader，预处理器loader**。
+**注意loader添加顺序（use中），style-loader，css-loader， postcss-loader，预处理器loader**。如果写错了就会导致预处理器样式错误，万分注意。
 
 这样我们就可以处理样式文件。
 
