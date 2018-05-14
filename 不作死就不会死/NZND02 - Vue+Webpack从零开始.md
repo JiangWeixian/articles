@@ -8,11 +8,11 @@
 * [参考地址](http://www.qinshenxue.com/article/20161118151423.html) - 从零开始说明webpack+vue2
 * [参考地址](https://www.cnblogs.com/libin-1/p/6596810.html) - 说明`vue-cli`配置
 
-[从零开始项目地址]()
+## 基础版本(配置`npm run dev`)
 
-## 正文
+本文已经假设你已经安装了`npm`，以及安装了`webpack`(使用`npm`安装即可)
 
-本文已经假设你已经安装了`npm`，以及全局安装了`webpack`(使用`npm`安装即可)
+* [从零开始项目地址](https://github.com/JiangWeixian/tf-mobilenet-vue/tree/webpack-stage-young)
 
 ### Step 1. 初始化NPM项目
 
