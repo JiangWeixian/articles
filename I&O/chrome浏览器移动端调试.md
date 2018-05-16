@@ -13,7 +13,7 @@
 
 浏览器除了`F12`进入调试界面。点击移动调试按钮选择移动设备之外，如下图：
 
-![移动调试界面]()
+![移动调试界面](https://raw.githubusercontent.com/JiangWeixian/articles/master/I%26O/img/%E7%A7%BB%E5%8A%A8%E8%B0%83%E8%AF%95F12.png)
 
 这个能够满足大部分要求。不过和真机还是有区别的，因此我们需要进入真实调试界面。也就是一部手机！
 
@@ -47,11 +47,11 @@ HT69K0207609	device
 
 浏览器地址输入：`chrome://inspect/#devices`如下图所示：
 
-![chrome-inspect]()
+![chrome-inspect](https://raw.githubusercontent.com/JiangWeixian/articles/master/I%26O/img/chrome-inspect.png)
 
 * 我是在webstorm上写的代码，所以端口基本就是8080。所以在portforwad那一栏，写上
 
-![portforward]()
+![portforward](https://raw.githubusercontent.com/JiangWeixian/articles/master/I%26O/img/portforwd.png)
 
 然后下面输入栏目写下地址，如果是开发页面就是`localhost:8080`
 
