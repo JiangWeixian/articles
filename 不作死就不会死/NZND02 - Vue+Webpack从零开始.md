@@ -3,10 +3,11 @@
 
 ## 前言
 
-`vue-cli`很好用，`webpack`很强大。有必要学习一下如何使用`webpack`打包自己项目。
+`vue-cli`很好用，`webpack`很强大。有必要学习一下如何使用`webpack`打包自己项目。写的时候我是用的是**webpack 4**
 
 * [参考地址](http://www.qinshenxue.com/article/20161118151423.html) - 从零开始说明webpack+vue2
 * [参考地址](https://www.cnblogs.com/libin-1/p/6596810.html) - 说明`vue-cli`配置
+* [webpack4](https://github.com/dwqs/blog/issues/60)
 
 ## 基础版本(配置`npm run dev`)
 
@@ -428,15 +429,182 @@ new FriendlyErrorsPlugin({
 
 ## 进阶
 
-待写...
+配置`build`模式，首先需要了解它到底做了什么。如果之前使用过`vue-cli`的`build`的，就会发现它会在根目录下创建`dist`文件夹。文件夹内部是`static`文件以及`index.html`文件。`static`文件放的就是我们打包好的`js css`等。
 
+`build`最重要的就是压缩部分，所以新增的很多的都是针对这一部分。
 
+其次我们需要知道那些需要保留，又有那些需要不需要。
 
+* `devServer`配置项目不需要
+* 基本`loader`保留，`css`部分`loader`我们需要`extract-text-plugin`提取在`vue`文件中的`style`样式。
 
+[进阶版本项目地址](https://github.com/JiangWeixian/tf-mobilenet-vue/tree/webpack-stage-eval)
 
+### Step 1. 基本`entry`和`output`配置项目
 
+会贴出`dev`和`prod`对应部分
 
+```Javascript
+// dev
+context: path.resolve(__dirname, '../'),
+mode: 'development',
+entry: {
+  main: './src/main.js'
+},
+output: {
+    path: path.join(__dirname, '../dist'),
+    filename: path.posix.join('static', 'js/[name].[chunkhash].js'),
+    chunkFilename: path.posix.join('static', 'js/[id].[chunkhash].js'),
+    publicPath: './'
+},
+```
 
+`prod`部分。
+
+```Javascript
+// prod
+// context 不变，我们仍在这个目录下找入口文件
+context: path.resolve(__dirname, '../'),
+// webpack 4 新增
+mode: 'production',
+entry: {
+  main: './src/main.js'
+},
+output: {
+  path: path.join(__dirname, , '../dist'),
+  filename: path.poxis.join('static', 'js/[name].[chunkhash].js'),
+  chunkFilename: path.poxis.join('static', 'js/[id].[chunkhash].js'),
+  publicPath: './'
+},
+```
+
+* `output`项说明
+  * `path` - 打包文件所存在位置
+  * `filename` - js路径为`static/js/...`
+  * `chunkFilname` - 网上说明的是**非入口文件的文件名，而又需要被打包出来的文件命名配置,如按需加载的模块**，不过好像指的是`require.ensure`引入的模块。我不是很能理解，也没这样用过。[参考地址](https://www.cnblogs.com/toward-the-sun/p/6147324.html)
+  * `publicpath` - 决定`index.html`会从哪个目录下找`js css`等文件。`static`打包之后变为了`dist/static`，所以是`./`
+
+### Step 2. module rules部分
+
+和之前相比。需要在`vue-loader options`和`css-loader`等rules追加`MiniCssExtractPlugin`插件。这是由于`extract-text-plugin`不再支持`webpack4`。[类似工程地址](https://github.com/iq9891/vue-spa-template/tree/master/template/build)
+
+`build`阶段，由于代码长度。我只贴出了`build`阶段部分。
+
+```Javascript
+rules: [
+  {
+    test: /\.vue$/,
+    loader: "vue-loader",
+    options: {
+      loaders: {
+        css: [ MiniCssExtractPlugin.loader,
+              {loader: 'css-loader', options: {sourceMap: true}}],
+        //...
+    }
+  },
+  {
+    test: /\.stylus$/,
+    use: [MiniCssExtractPlugin.loader,
+      {loader: 'css-loader', options: {sourceMap: true}},
+      {loader: 'postcss-loader', options: {sourceMap: true}},
+      {loader: 'stylus-loader', options: {sourceMap: true}},
+    ]
+  },
+  // ...
+  },
+```
+
+### Step 2. plugins部分
+
+* `UglifyJsPlugin`压缩代码。配置见官网就可以了。
+  ```Javascript
+  new UglifyJsPlugin({
+      uglifyOptions: {
+        compress: {
+          warning: false
+        },
+      },
+      sourceMap: true,
+      parallel: true
+    }),
+  ```
+* `OptimizeCSSPlugin` - 压缩css。在官网找不到docs才是最崩溃的。
+  ```JavaScript
+  new OptimizeCSSPlugin({
+      cssProcessorOptions: {safe: true, map: { inline: false }}
+    }),
+  ```
+* `HtmlWebpackPlugin` 
+  ```Javascript
+  new HtmlWebpackPlugin({
+      template: 'index.html',
+      // 生成html在dist文件夹中的dist/index.html
+      filename: path.resolve(__dirname, '../dist/index.html'),
+      inject: true,
+      // 压缩index.html
+      minify: {
+        //消除注释
+        removeComments: true,
+        //消除空格
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      //好像是css js插入html的时候，插入规则
+      chunksSortMode: 'dependency'
+    }),
+  ```
+* `webpack.HashedModuleIdsPlugin` - [参考地址](https://loveky.github.io/2017/03/29/webpack-module-ids/)，保证第三方代码被打包压缩的时候不会因为每次修改而重新打包。
+* `webpack.optimize.ModuleConcatenationPlugin()` - 减少闭包，压缩代码。[参考地址](https://zhuanlan.zhihu.com/p/27980441)
+
+#### webpack4 不同点
+
+没有了`CommonsChunkPlugin`。增加了新的配置项
+
+* `optimization.splitChunks` - [分包](https://github.com/webpack/webpack/blob/master/examples/common-chunk-and-vendor-chunk/webpack.config.js)
+  ```JavaScript
+  optimization: {
+		splitChunks: {
+			cacheGroups: {
+				commons: {
+					chunks: "initial",
+					minChunks: 2,
+					maxInitialRequests: 5, // The default limit is too small to showcase the effect
+					minSize: 0 // This is example is too small to create commons chunks
+				},
+				vendor: {
+					test: /node_modules/,
+					chunks: "initial",
+					name: "vendor",
+					priority: 10,
+					enforce: true
+				}
+			}
+		}
+	},
+  ```
+* `MiniCssExtractPlugin`提取出来的css配置项
+  ```Javascript
+  new MiniCssExtractPlugin({
+      filename: path.posix.join('static', 'css/[name].[contenthash].css'),
+      allChunks: true
+    }),
+  ```
+
+### npm run build
+
+建立`build.js`，如下：
+
+```JavaScript
+const webpack = require("webpack")
+const webpackProdConfig = require("./webpack.prod.conf");
+webpack(webpackProdConfig, function(err, stats) {
+  process.stdout.write(stats.toString());
+});
+```
+
+在`package.json scripts`中配置：`node build/build.js`
+
+到现在为止，`build`模式配置完成。
 
 
 
