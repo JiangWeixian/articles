@@ -36,7 +36,7 @@ reactnative run-android
 
 * [gradle版本太低，因为react-native要求高](https://github.com/react-native-community/react-native-camera/issues/1530)
 
-![gradle]()
+![gradle](https://raw.githubusercontent.com/JiangWeixian/articles/master/%E4%B8%8D%E4%BD%9C%E6%AD%BB%E5%B0%B1%E4%B8%8D%E4%BC%9A%E6%AD%BB/img/nznd03%20-%20grable.png)
 
 * [com.android.support:support-v4 error](https://github.com/react-community/react-native-maps/issues/2158)
     ```bash
