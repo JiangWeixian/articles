@@ -10,3 +10,5 @@ powershell和hyper此类的客户端都不好用。
 * [教程](https://www.jianshu.com/p/fac45920628d)
 
 先记录安装，之后用到什么再更新。
+
+* 打开windows其他盘的文件夹 - `cd /cygdrive/c`打开c盘。
