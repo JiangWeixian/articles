@@ -11,4 +11,15 @@ powershell和hyper此类的客户端都不好用。
 
 先记录安装，之后用到什么再更新。
 
+### tips
+
+* [让cygwin更好用的配置教程](http://oldratlee.com/post/2012-12-22/stunning-cygwin)
+
 * 打开windows其他盘的文件夹 - `cd /cygdrive/c`打开c盘。
+* 不区分大小写的自动补全：
+    ```bash
+    # in ~/.bashrc
+    shopt -s nocaseglob
+    # in ~/.inputrc
+    set completion-ignore-case on
+    ```
