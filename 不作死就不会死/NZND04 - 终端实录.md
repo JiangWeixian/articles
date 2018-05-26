@@ -52,10 +52,12 @@ plugins = (
 )
 ```
 
-`zsh`提供了很多很好用插件，但是作为新手可能不知道怎么安装它。[这篇博客]()列出了几种可能的安装方式，未随着`oh-my-zsh`安装的插件，基本方式也可以得到确认，就是将插件安装到`~/.oh-my-zsh/custom/plugins`中，然后在`~/.zshrc`中以相同的方式启用他们。
+`zsh`提供了很多很好用插件，但是作为新手可能不知道怎么安装它。[这篇博客](https://hufangyun.com/2017/zsh-plugin/)列出了几种可能的安装方式，未随着`oh-my-zsh`安装的插件，基本方式也可以得到确认，就是将插件安装到`~/.oh-my-zsh/custom/plugins`中，然后在`~/.zshrc`中以相同的方式启用他们。
 
 推荐几种好用的插件：
 
 1. `z` - 通过`cd`进入的条目都会被保留，例如`docments/web/a`，通过`z a`就有可能直接补充提示`a`文件夹。
 2.  `zsh-autosuggestion` - 安装方法，博客里面有。会自动提示命令以及一切能够提示的东西。
 3. `incr.sh` - `cd`命令的自动提示，效果见[地址](http://yijiebuyi.com/blog/36955b84c57e338dd8255070b80829bf.html)。[主页地址](http://mimosa-pudica.net/zsh-incremental.html)。最好将`source incr.sh(其路径加入.zshrc)`。不过感觉和上一个插件可能有功能重复，请谨慎使用。
+
+**注意：~/.zshrc中plugin内，每个插件之间并没有用,分割。被小小的坑了一把！**
