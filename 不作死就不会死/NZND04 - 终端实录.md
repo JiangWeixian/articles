@@ -59,5 +59,14 @@ plugins = (
 1. `z` - 通过`cd`进入的条目都会被保留，例如`docments/web/a`，通过`z a`就有可能直接补充提示`a`文件夹。
 2.  `zsh-autosuggestion` - 安装方法，博客里面有。会自动提示命令以及一切能够提示的东西。
 3. `incr.sh` - `cd`命令的自动提示，效果见[地址](http://yijiebuyi.com/blog/36955b84c57e338dd8255070b80829bf.html)。[主页地址](http://mimosa-pudica.net/zsh-incremental.html)。最好将`source incr.sh(其路径加入.zshrc)`。不过感觉和上一个插件可能有功能重复，请谨慎使用。
+4. `git-open` - 快速打开`git repo`主页
+
 
 **注意：~/.zshrc中plugin内，每个插件之间并没有用,分割。被小小的坑了一把！**
+
+### 意外好用的命令
+
+* `history` - 查看你终端历史输入
+* `ls dirpath` - 查看某路径下所有文件
+* `alias` - 查看所有`alias`
+* 
