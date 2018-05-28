@@ -23,6 +23,23 @@ powershell和hyper此类的客户端都不好用。
     # in ~/.inputrc
     set completion-ignore-case on
     ```
+
+### cygwin+oh-my-zsh
+
+在cygwin上面安装oh-my-zsh。
+
+1. 打开cygwin终端，安装`apt-cyg`类似`apt-get`。一条命令`wget -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg`+`install apt-cyg /bin`
+2. 安装`oh-my-zsh` - `apt-cyg install zsh curl git`
+3. `oh-my-zsh`在windows启动有问题，结合官网教程，在`.bashrc`加上`exec zsh`
+
+插件安装方法和下述类似。
+
+`cygwin`不支持分屏需要结合`tmux`来进行进一步操作。[doc地址](http://louiszhai.github.io/2017/09/30/tmux/#%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D)
+
+1. 安装`tmux` - `apt-cyg install tmux`
+
+**怎么分屏还没有搞清楚...**
+
 ## oh-my-zsh
 
 `linux`上最好用的终端，从`bash`切换过来的。目前没有遇到冲突问题。
@@ -69,4 +86,3 @@ plugins = (
 * `history` - 查看你终端历史输入
 * `ls dirpath` - 查看某路径下所有文件
 * `alias` - 查看所有`alias`
-* 
