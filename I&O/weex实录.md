@@ -66,7 +66,7 @@ weexpack platform add andriod
 
 首先我需要知道这东西怎么调试，看官网的教程直接`npm start`。自动在浏览器窗口打开一个网页，如下：
 
-![npm-start]()
+![npm-start](https://raw.githubusercontent.com/JiangWeixian/articles/master/I%26O/img/weex-preview.png)
 
 **本来想通过npm run dev**，可是不知道为什么无法打开网页。大家可以试一试`npm run dev&npm run server`
 
@@ -108,7 +108,7 @@ weexpack platform add andriod
 * 首先去iconfont注册账号，选择字体添加购物车。然后讲购物车内部字体添加到项目（指的是在iconfont网站上的项目）
 * 在网站后台生成代码，如下图所示**注意我们还是只能够使用text**
 
-![iconfont]()
+![iconfont](https://github.com/JiangWeixian/articles/blob/master/I&O/img/iconfont.png?raw=true)
 
 只有[官方的例子](https://github.com/apache/incubator-weex/blob/master/examples/vue/iconfont.vue)才会成功，其他会在不同平台上导致不同的渲染效果。
 
