@@ -22,7 +22,7 @@
 
 2. 设置自动代理配置
 
-  ![autopac]()
+  ![autopac](https://raw.githubusercontent.com/JiangWeixian/articles/master/%E6%95%99%E7%A8%8B/img/autopac.png)
 
   **注意是file://+autoproxy.pac地址**
 
