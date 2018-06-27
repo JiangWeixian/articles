@@ -10,5 +10,5 @@
 * [I&O](https://github.com/JiangWeixian/articles/tree/master/I%26O) / 和Google相关
 * [教程](https://github.com/JiangWeixian/articles/tree/master/%E6%95%99%E7%A8%8B) / 会的东西总是容易忘记
 * 总结
-  * [2016-socket聊天室简单总结]()
+  * [2016-socket聊天室简单总结](https://github.com/JiangWeixian/articles/blob/master/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/2016-socket.io%E8%81%8A%E5%A4%A9%E5%AE%A4%E5%A4%A7%E8%87%B4%E6%80%BB%E7%BB%93.md)
   * [2018-Tensorflow+Vue总结](https://github.com/JiangWeixian/articles/blob/master/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/2018-tensorflow%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB.md)
