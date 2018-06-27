@@ -18,6 +18,7 @@
 
 * tensorflow.js and mobilenet - 都是`NPM`包
 * 调用手机`camera`
+* [项目地址](https://github.com/JiangWeixian/tf-mobilenet-vue)
 
 ## 流程
 
