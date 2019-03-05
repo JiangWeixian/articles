@@ -26,8 +26,7 @@ npm install --save-dev eslint eslint-config-standard eslint-plugin-standard esli
 
 **注意：想要自动让eslint检查你的代码。如果不借助webpack是实现不了的。所以我选择好的IDE**
 
-在`file->setting>lanuage&frameworks>javascript`选择`ecmascript6`。在下来菜单中`code quality tools>eslint`点击`enable`
-
-
-
-
+* in `webstorm ide`设置
+    在`file->setting>lanuage&frameworks>javascript`选择`ecmascript6`。在下来菜单中`code quality tools>eslint`点击`enable`
+* in `vscode ide`设置
+    下载`eslint`插件应该就可以了

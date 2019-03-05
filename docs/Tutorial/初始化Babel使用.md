@@ -1,6 +1,6 @@
 # Babel初始化教程
 
-## 1. Node - 没有HTML
+## Node - 没有HTML
 
 初衷是我只想使用`JS`文件，没有`HTML`。
 
