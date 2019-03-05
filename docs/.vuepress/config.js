@@ -22,7 +22,6 @@ module.exports = {
       '/NZND/': [
         '',
         'Flexible一些应用以及思考',
-        'Vue-Webpack从零开始',
         'ReactNative',
         '终端实录',
       ],
@@ -45,7 +44,8 @@ module.exports = {
         '',
         'Linux-SS-PAC',
         '初始化Babel使用',
-        '初始化Node项目'
+        '初始化Node项目',
+        'Vue-Webpack从零开始',
       ],
       '/Menus/': [
         ''
