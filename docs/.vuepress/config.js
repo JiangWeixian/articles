@@ -13,12 +13,6 @@ module.exports = {
       { text: 'Github', link: 'https://github.com/JiangWeixian/articles' },
     ],
     sidebar: {
-      '/GithubBuildBlogSite/': [
-        '',     /* /foo/ */
-        '使用Github托管图片',
-        '前期准备',
-        '将代码托管到Github'
-      ],
       '/NZND/': [
         '',
         'Flexible一些应用以及思考',
@@ -46,6 +40,10 @@ module.exports = {
         '初始化Node项目',
         'Vue-Webpack从零开始',
         '终端实录',
+        'GithubBuildBlogSite/GithubBuildBlogSite',
+        'GithubBuildBlogSite/前期准备',
+        'GithubBuildBlogSite/将代码托管到Github',
+        'GithubBuildBlogSite/使用Github托管图片',
       ],
       '/Menus/': [
         ''

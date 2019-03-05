@@ -1,4 +1,4 @@
-# Nodejs项目
+# Nodejs项目初始化教程
 > 搭建nodejs环境，测试纯JS代码
 
 ## 有什么？
